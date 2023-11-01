@@ -1,0 +1,27 @@
+{
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon ./src/app.js"
+  },
+  "name": "devops-mini-proj-tdd-greetings",
+  "description": "Hello World",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elisenium/devops-mini-proj-tdd-greetings.git"
+  },
+  "author": "elisenium - didia-josefechado-vinci",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elisenium/devops-mini-proj-tdd-greetings/issues"
+  },
+  "homepage": "https://github.com/elisenium/devops-mini-proj-tdd-greetings#readme",
+  "dependencies": {
+    "node": "^21.1.0",
+    "nodemon": "^3.0.1"
+  }
+}
