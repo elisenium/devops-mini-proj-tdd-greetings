@@ -4,7 +4,9 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "nodemon ./src/app.js"
+    "start": "nodemon ./src/app.js",
+    "lint": "eslint ./src/**",
+    "lint:fix": "eslint --fix ./src/**"
   },
   "name": "devops-mini-proj-tdd-greetings",
   "description": "Hello World",
@@ -21,6 +23,7 @@
   },
   "homepage": "https://github.com/elisenium/devops-mini-proj-tdd-greetings#readme",
   "dependencies": {
+    "eslint": "^8.52.0",
     "node": "^21.1.0",
     "nodemon": "^3.0.1"
   }
