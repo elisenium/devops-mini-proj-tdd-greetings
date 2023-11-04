@@ -1,5 +1,3 @@
-console.log('Hello World');
-
 function greet(name) {
     if (name === undefined || name === '' || name === null) {
         return 'Hello, my friend.';
