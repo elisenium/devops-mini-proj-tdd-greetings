@@ -11,3 +11,7 @@ test('greet with an undefined value', () => {
 test('greet with no entered value', () => {
     expect(greet()).toBe("Hello, my friend.");
 });
+
+test('greet with a null value', () => {
+    expect(greet(null)).toBe("Hello, my friend.");
+});
