@@ -7,3 +7,7 @@ test('greet with given name in parameter', () => {
 test('greet with an undefined value', () => {
     expect(greet(undefined)).toBe("Hello, my friend.");
 });
+
+test('greet with no entered value', () => {
+    expect(greet()).toBe("Hello, my friend.");
+});

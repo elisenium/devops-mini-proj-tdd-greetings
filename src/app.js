@@ -1,7 +1,7 @@
 console.log('Hello World');
 
 function greet(name) {
-    if (name === undefined) {
+    if (name === undefined || name === '') {
         return 'Hello, my friend.';
     }
     return `Hello, ${name}.`;
