@@ -1,8 +1,9 @@
 function greet(name) {
+    const helloStr = `Hello, ${name}`;
     if (containsUppercaseOnly(name) === true) {
-        return `HELLO, ${name}!`;
+        return helloStr.toUpperCase() + '!';
     }
-    return `Hello, ${name}.`;
+    return helloStr + '.';
 }
 
 function containsUppercaseOnly(str) {
