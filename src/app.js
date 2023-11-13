@@ -5,15 +5,13 @@ function greet(names){
 };
 
 function moreThanTwo(names){
-    let string=`Hello, `;
-    for (let index = 0; index < names.length; index++) {
-        if(index==names.length-2){
-            string+=names[index]+" and ";
-        }else{
-            string+=names[index]+", ";
-        }
+    if (namesLower.length <= 1) {
+        return `Hello, ${namesLower.join("")}.`;
     }
-    return string.slice(0, -2) + ".";
+    const lastTwo = namesLower.slice(-2).join(" and ");
+    const rest = namesLower.slice(0, -2).join(", ");
+
+    return `Hello, ${rest.length > 0 ? rest + ", " : ""}${lastTwo}.`;
 };
 
 module.exports = greet;
