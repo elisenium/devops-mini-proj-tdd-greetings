@@ -5,7 +5,15 @@ function greet(names){
 };
 
 function moreThanTwo(names){
-     return `Hello, ${names[0]}, ${names[1]} and ${names[2]}.`;
+    let string=`Hello, `;
+    for (let index = 0; index < names.length; index++) {
+        if(index==names.length-2){
+            string+=names[index]+" and ";
+        }else{
+            string+=names[index]+", ";
+        }
+    }
+    return string.slice(0, -2) + ".";
 };
 
 module.exports = greet;
