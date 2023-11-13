@@ -1,4 +1,8 @@
 function greet(name) {
+    
+    if (name === undefined || name === '' || name === null) {
+        return 'Hello, my friend.';
+    }
     const helloStr = `Hello, ${name}`;
     if (containsUppercaseOnly(name) === true) {
         return helloStr.toUpperCase() + '!';
