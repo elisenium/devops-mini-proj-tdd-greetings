@@ -1,10 +1,24 @@
-function greet(names){
-    if (names.length==2){
-        return `Hello, ${names[0]} and ${names[1]}.`;}
-    return moreThanTwo(names);
+function greet(name) {
+
+    if (name === undefined || name === '' || name === null) {
+        return 'Hello, my friend.';
+    }
+    const helloStr = `Hello, ${name}`;
+
+    if (containsUppercaseOnly(name) === true) {
+        return helloStr.toUpperCase() + '!';
+    }
+
+    if (name.length === 2) {
+        return `Hello, ${name[0]} and ${name[1]}.`;
+    }
+    if (name.length === 1 || typeof (name) === 'string') {
+        return helloStr + '.';
+    }
+    return moreThanTwo(name);
 };
 
-function moreThanTwo(names){
+function moreThanTwo(namesLower) {
     if (namesLower.length <= 1) {
         return `Hello, ${namesLower.join("")}.`;
     }
@@ -13,5 +27,11 @@ function moreThanTwo(names){
 
     return `Hello, ${rest.length > 0 ? rest + ", " : ""}${lastTwo}.`;
 };
+    
+
+
+function containsUppercaseOnly(str) {
+    return /^[A-Z]+$/.test(str);
+}
 
 module.exports = greet;
