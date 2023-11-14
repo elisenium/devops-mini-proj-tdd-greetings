@@ -4,15 +4,15 @@ function greet(name) {
 
         return 'Hello, my friend.';
     }
-    const helloStr = `Hello, ${name}`;
+    let greeting = `Hello, ${name}`;
 
     if (name.length === 1 || typeof (name) === 'string') {
         if (containsUppercaseOnly(name) === true) {
-            return helloStr.toUpperCase() + '!';
+            return greeting.toUpperCase() + '!';
         }
-        return helloStr + '.';
+        return greeting + '.';
     }
-  
+
     if (name.length === 2) {
         return `Hello, ${name[0]} and ${name[1]}.`;
     }
@@ -23,7 +23,7 @@ function greet(name) {
       return moreThanTwo(name);
     }
     return `${moreThanTwo(tabLower)} AND HELLO ${string} !`;
-    }
+}
 
 function moreThanTwo(namesLower) {
     if (namesLower.length <= 1) {
