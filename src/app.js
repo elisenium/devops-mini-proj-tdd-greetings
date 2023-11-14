@@ -1,6 +1,7 @@
 function greet(name) {
 
     if (name === undefined || name === '' || name === null || name.length === 0) {
+
         return 'Hello, my friend.';
     }
     const helloStr = `Hello, ${name}`;
@@ -11,12 +12,18 @@ function greet(name) {
         }
         return helloStr + '.';
     }
+  
+    if (name.length === 2) {
+        return `Hello, ${name[0]} and ${name[1]}.`;
+    }
 
     const tabLower = name.filter(name => !containsUppercaseOnly(name));
     const string = name.find(name => containsUppercaseOnly(name));
-
+    if(string === undefined || string === '' || string === null){
+      return moreThanTwo(name);
+    }
     return `${moreThanTwo(tabLower)} AND HELLO ${string} !`;
-}
+    }
 
 function moreThanTwo(namesLower) {
     if (namesLower.length <= 1) {
