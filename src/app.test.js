@@ -26,6 +26,16 @@ test('greet with given uppercase name in parameter', () => {
     expect(greet('JERRY')).toBe('HELLO, JERRY!');
 });
 
+
+/* Test multiple entered names and handle names in uppercase */
+test('greet with given uppercase name and two other names in lowercase in parameter', () => {
+    expect(greet(["Amy", "BRIAN", "Charlotte"])).toBe('Hello, Amy and Charlotte. AND HELLO BRIAN !');
+});
+
+test('greet with given uppercase name and two other names in lowercase in parameter', () => {
+    expect(greet(["KRATOS", "Thanathos", "Hypnos"])).toBe('Hello, Thanathos and Hypnos. AND HELLO KRATOS !');
+});
+
 /* Test function with more than one name */
 test('greet with two given name in parameter', () => {
     expect(greet(['Jill','Jane'])).toBe('Hello, Jill and Jane.');
@@ -42,3 +52,4 @@ test('greet with several names in parameter', () => {
 test('greet with several names in parameter', () => {
     expect(greet(['Amy','Brian','Charlotte','Kratos', 'Thanathos','Hypnos'])).toBe('Hello, Amy, Brian, Charlotte, Kratos, Thanathos and Hypnos.');
 });
+
