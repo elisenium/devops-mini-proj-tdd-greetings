@@ -54,7 +54,11 @@ test('greet with several names in parameter', () => {
 });
 
 /* Test function with language feature (fr, nl, en) */
-test('greet with given name in parameter and no chosen language', () => {
+test('greet with one name in parameter and no chosen language', () => {
     expect(greet('Bob')).toBe('Hello, Bob.');
+});
+
+test('greet with one name in parameter and the chosen language is english', () => {
+    expect(greet('Phil', 'en')).toBe('Hello, Phil.');
 });
 
