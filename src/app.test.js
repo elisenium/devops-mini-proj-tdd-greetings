@@ -65,3 +65,7 @@ test('greet with one name in parameter and the chosen language is english', () =
 test('greet with one name in parameter and the chosen language is french', () => {
     expect(greet('Bob', 'fr')).toBe('Bonjour Bob.');
 });
+
+test('greet with one name in parameter and the chosen language is dutch', () => {
+    expect(greet('Stefaan', 'nl')).toBe('Hallo Stefaan.');
+});
