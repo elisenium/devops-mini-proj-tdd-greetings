@@ -1,10 +1,11 @@
 const greet = require('./app.js');
 
-/* Test null, undefined and empty values */
+/* Test entered name in parameter */
 test('greet with given name in parameter', () => {
     expect(greet('Bob')).toBe('Hello, Bob.');
 });
 
+/* Test null, undefined and empty values */
 test('greet with an undefined value', () => {
     expect(greet(undefined)).toBe('Hello, my friend.');
 });
@@ -17,15 +18,11 @@ test('greet with a null value', () => {
     expect(greet(null)).toBe('Hello, my friend.');
 });
 
-/* Test function in case of uppercase name */
-test('greet with given regular name in parameter', () => {
-    expect(greet('Bob')).toBe('Hello, Bob.');
-});
 
+/* Test function in case of uppercase name */
 test('greet with given uppercase name in parameter', () => {
     expect(greet('JERRY')).toBe('HELLO, JERRY!');
 });
-
 
 /* Test multiple entered names and handle names in uppercase */
 test('greet with given uppercase name and two other names in lowercase in parameter', () => {
@@ -54,10 +51,6 @@ test('greet with several names in parameter', () => {
 });
 
 /* Test function with language feature (fr, nl, en) */
-test('greet with one name in parameter and no chosen language', () => {
-    expect(greet('Bob')).toBe('Hello, Bob.');
-});
-
 test('greet with one name in parameter and the chosen language is english', () => {
     expect(greet('Phil', 'en')).toBe('Hello, Phil.');
 });
