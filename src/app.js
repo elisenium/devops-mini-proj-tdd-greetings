@@ -1,20 +1,41 @@
-function greet(name) {
+function greet(name, language) {
+    let greeting;
+    const languages = [
+        { "lang": "en", "greeting": "Hello,", "and": "and" },
+        { "lang": "fr", "greeting": "Bonjour", "and": "et" },
+        { "lang": "nl", "greeting": "Hallo", "and": "en" }
+    ];
+    const default_language = languages[0];
 
     if (name === undefined || name === '' || name === null || name.length === 0) {
-
         return 'Hello, my friend.';
     }
-    let greeting = `Hello, ${name}`;
+
+    if (name.length == 2) {
+        if (language === null || language === '' || language === undefined) {
+            greeting = `${default_language.greeting} ${name[0]} ${default_language.and} ${name[1]}.`;
+        }
+        languages.forEach(item => {
+            if (language === item.lang) {
+                greeting = `${item.greeting} ${name[0]} ${item.and} ${name[1]}.`;
+            }
+        });
+        return greeting;
+    }
 
     if (name.length === 1 || typeof (name) === 'string') {
+        if (language === null || language === '' || language === undefined) {
+            greeting = `${default_language.greeting} ${name}`;
+        }
+        languages.forEach(item => {
+            if (language === item.lang) {
+                greeting = `${item.greeting} ${name}`;
+            }
+        });
         if (containsUppercaseOnly(name) === true) {
             return greeting.toUpperCase() + '!';
         }
         return greeting + '.';
-    }
-
-    if (name.length === 2) {
-        return `Hello, ${name[0]} and ${name[1]}.`;
     }
 
     const tabLower = name.filter(name => !containsUppercaseOnly(name));
