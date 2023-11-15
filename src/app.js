@@ -17,7 +17,7 @@ function greet(name, language) {
         return 'Hello, my friend.';
     }
 
-    if (name.length == 2) {
+    if (name.length === 2) {
 
         if (language !== null && language !== '' && language !== undefined) {
             selectedLanguage = languages.find((item) => item.lang === language) || default_language;
@@ -62,12 +62,6 @@ function moreThanTwo(namesLower, language) {
 
     return `${selectedLanguage.greeting} ${rest.length > 0 ? rest + ', ' : ''}${lastTwo}.`;
 }
-
-module.exports = moreThanTwo;
-
-
-module.exports = moreThanTwo;
-
 
 function containsUppercaseOnly(str) {
     return /^[A-Z]+$/.test(str);
