@@ -29,14 +29,12 @@ function greet(name, language) {
     }
 
     if (name.length === 1 || typeof name === 'string') {
-        if (language === null || language === '' || language === undefined) {
+        if (language !== null && language !== '' && language !== undefined) {
+            selectedLanguage = languages.find((item) => item.lang === language);
+            greeting = `${selectedLanguage.greeting} ${name}`;
+        } else {
             greeting = `${defaultLanguage.greeting} ${name}`;
         }
-        languages.forEach((item) => {
-            if (language === item.lang) {
-                greeting = `${item.greeting} ${name}`;
-            }
-        });
         if (containsUppercaseOnly(name) === true) {
             return greeting.toUpperCase() + '!';
         }
