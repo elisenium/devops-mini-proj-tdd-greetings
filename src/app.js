@@ -19,21 +19,12 @@ function greet(name, language) {
     }
 
     if (name.length === 2) {
-
-        if (language !== null && language !== '' && language !== undefined) {
-            greeting = `${selectedLanguage.greeting} ${name[0]} ${selectedLanguage.and} ${name[1]}.`;
-        } else {
-            greeting = `${defaultLanguage.greeting} ${name[0]} ${defaultLanguage.and} ${name[1]}.`;
-        }
+        greeting = `${selectedLanguage.greeting} ${name[0]} ${selectedLanguage.and} ${name[1]}.`;
         return greeting;
     }
 
     if (name.length === 1 || typeof name === 'string') {
-        if (language !== null && language !== '' && language !== undefined) {
-            greeting = `${selectedLanguage.greeting} ${name}`;
-        } else {
-            greeting = `${defaultLanguage.greeting} ${name}`;
-        }
+        greeting = `${selectedLanguage.greeting} ${name}`;
         if (containsUppercaseOnly(name) === true) {
             return greeting.toUpperCase() + '!';
         }
@@ -45,7 +36,10 @@ function greet(name, language) {
     if (string === undefined || string === '' || string === null) {
         return moreThanTwo(name, language);
     }
-    let andHello = ((`${selectedLanguage.and} ${selectedLanguage.greeting}`).toUpperCase()).slice(0,-1);
+    let andHello = ((`${selectedLanguage.and} ${selectedLanguage.greeting}`).toUpperCase());
+    if (language === 'en' || language === undefined || language === '' || language === null) {
+        andHello = andHello.slice(0, -1);
+    }
     return `${moreThanTwo(tabLower, language)} ${andHello} ${string} !`;
 }
 
