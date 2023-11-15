@@ -1,12 +1,13 @@
 let greeting;
 const languages = [
-    { lang: 'en', greeting: 'Hello,', and: 'and' },
-    { lang: 'fr', greeting: 'Bonjour', and: 'et' },
-    { lang: 'nl', greeting: 'Hallo', and: 'en' },
+    { lang: 'en', greeting: 'Hello,', and: 'and', friend: 'my friend' },
+    { lang: 'fr', greeting: 'Bonjour', and: 'et', friend: 'mon ami(e)' },
+    { lang: 'nl', greeting: 'Hallo', and: 'en', friend: 'mijn vriend(in)' },
 ];
 const defaultLanguage = languages.find((lang) => lang.lang === 'en'); // Set default language to English if language is not found
 
 function greet(name, language) {
+    selectedLanguage = languages.find((item) => item.lang === language) || defaultLanguage;
     
     if (
         name === undefined ||
@@ -14,13 +15,12 @@ function greet(name, language) {
         name === null ||
         name.length === 0
     ) {
-        return 'Hello, my friend.';
+        return `${selectedLanguage.greeting} ${selectedLanguage.friend}.`;
     }
 
     if (name.length === 2) {
 
         if (language !== null && language !== '' && language !== undefined) {
-            selectedLanguage = languages.find((item) => item.lang === language) || default_language;
             greeting = `${selectedLanguage.greeting} ${name[0]} ${selectedLanguage.and} ${name[1]}.`;
         } else {
             greeting = `${defaultLanguage.greeting} ${name[0]} ${defaultLanguage.and} ${name[1]}.`;
@@ -30,7 +30,6 @@ function greet(name, language) {
 
     if (name.length === 1 || typeof name === 'string') {
         if (language !== null && language !== '' && language !== undefined) {
-            selectedLanguage = languages.find((item) => item.lang === language);
             greeting = `${selectedLanguage.greeting} ${name}`;
         } else {
             greeting = `${defaultLanguage.greeting} ${name}`;
@@ -46,11 +45,11 @@ function greet(name, language) {
     if (string === undefined || string === '' || string === null) {
         return moreThanTwo(name, language);
     }
-    return `${moreThanTwo(tabLower, language)} AND HELLO ${string} !`;
+    let andHello = ((`${selectedLanguage.and} ${selectedLanguage.greeting}`).toUpperCase()).slice(0,-1);
+    return `${moreThanTwo(tabLower, language)} ${andHello} ${string} !`;
 }
 
 function moreThanTwo(namesLower, language) {
-
     const selectedLanguage = languages.find((lang) => lang.lang === language) || defaultLanguage;
 
     if (namesLower.length <= 1) {
