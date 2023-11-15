@@ -89,3 +89,8 @@ test('greet with three names in parameter and the chosen language is dutch', () 
 test('greet with three names in parameter and the chosen language is french', () => {
     expect(greet(['Kratos', 'Thanathos', 'Hypnos'], 'fr')).toBe('Bonjour Kratos, Thanathos et Hypnos.');
 });
+
+test('greet with more than three names in parameter and the chosen language is english', () => {
+    expect(greet(['Amy', 'Brian', 'Charlotte', 'Kratos', 'Thanathos', 'Hypnos'], 'en')).toBe(
+        'Hello, Amy, Brian, Charlotte, Kratos, Thanathos and Hypnos.');
+});
