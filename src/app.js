@@ -4,7 +4,7 @@ const languages = [
     { lang: 'fr', greeting: 'Bonjour', and: 'et' },
     { lang: 'nl', greeting: 'Hallo', and: 'en' },
 ];
-const defaultLanguage = languages.find((lang) => lang.lang === 'en'); // Set default language to English if not found
+const defaultLanguage = languages.find((lang) => lang.lang === 'en'); // Set default language to English if language is not found
 
 function greet(name, language) {
     
@@ -18,14 +18,13 @@ function greet(name, language) {
     }
 
     if (name.length == 2) {
-        if (language === null || language === '' || language === undefined) {
+
+        if (language !== null && language !== '' && language !== undefined) {
+            selectedLanguage = languages.find((item) => item.lang === language) || default_language;
+            greeting = `${selectedLanguage.greeting} ${name[0]} ${selectedLanguage.and} ${name[1]}.`;
+        } else {
             greeting = `${defaultLanguage.greeting} ${name[0]} ${defaultLanguage.and} ${name[1]}.`;
         }
-        languages.forEach((item) => {
-            if (language === item.lang) {
-                greeting = `${item.greeting} ${name[0]} ${item.and} ${name[1]}.`;
-            }
-        });
         return greeting;
     }
 
