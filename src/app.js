@@ -30,7 +30,8 @@ function greet(name, language) {
         }
         return greeting + '.';
     }
-
+    /*pre : array with mix of uppercase and lowercase       
+      post : array with only lowercase name and a string of the uppercase name*/
     const tabLower = name.filter((name) => !containsUppercaseOnly(name));
     const string = name.find((name) => containsUppercaseOnly(name));
     if (string === undefined || string === '' || string === null) {
@@ -42,7 +43,8 @@ function greet(name, language) {
     }
     return `${moreThanTwo(tabLower, language)} ${andHello} ${string} !`;
 }
-
+/*pre : array with lowercase name
+  post : string with the correct form of sentence*/
 function moreThanTwo(namesLower, language) {
     const selectedLanguage = languages.find((lang) => lang.lang === language) || defaultLanguage;
 
