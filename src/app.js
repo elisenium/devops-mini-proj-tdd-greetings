@@ -1,38 +1,59 @@
-function greet(name) {
+let greeting;
+const languages = [
+    { lang: 'en', greeting: 'Hello,', and: 'and', friend: 'my friend' },
+    { lang: 'fr', greeting: 'Bonjour', and: 'et', friend: 'mon ami(e)' },
+    { lang: 'nl', greeting: 'Hallo', and: 'en', friend: 'mijn vriend(in)' },
+];
+const defaultLanguage = languages.find((lang) => lang.lang === 'en'); // Set default language to English if language is not found
 
-    if (name === undefined || name === '' || name === null || name.length === 0) {
-
-        return 'Hello, my friend.';
+function greet(name, language) {
+    selectedLanguage = languages.find((item) => item.lang === language) || defaultLanguage;
+    
+    if (
+        name === undefined ||
+        name === '' ||
+        name === null ||
+        name.length === 0
+    ) {
+        return `${selectedLanguage.greeting} ${selectedLanguage.friend}.`;
     }
-    const helloStr = `Hello, ${name}`;
 
-    if (name.length === 1 || typeof (name) === 'string') {
-        if (containsUppercaseOnly(name) === true) {
-            return helloStr.toUpperCase() + '!';
-        }
-        return helloStr + '.';
-    }
-  
     if (name.length === 2) {
-        return `Hello, ${name[0]} and ${name[1]}.`;
+        greeting = `${selectedLanguage.greeting} ${name[0]} ${selectedLanguage.and} ${name[1]}.`;
+        return greeting;
     }
 
-    const tabLower = name.filter(name => !containsUppercaseOnly(name));
-    const string = name.find(name => containsUppercaseOnly(name));
-    if(string === undefined || string === '' || string === null){
-      return moreThanTwo(name);
-    }
-    return `${moreThanTwo(tabLower)} AND HELLO ${string} !`;
+    if (name.length === 1 || typeof name === 'string') {
+        greeting = `${selectedLanguage.greeting} ${name}`;
+        if (containsUppercaseOnly(name) === true) {
+            return greeting.toUpperCase() + '!';
+        }
+        return greeting + '.';
     }
 
-function moreThanTwo(namesLower) {
+    const tabLower = name.filter((name) => !containsUppercaseOnly(name));
+    const string = name.find((name) => containsUppercaseOnly(name));
+    if (string === undefined || string === '' || string === null) {
+        return moreThanTwo(name, language);
+    }
+    let andHello = ((`${selectedLanguage.and} ${selectedLanguage.greeting}`).toUpperCase());
+    if (language === 'en' || language === undefined || language === '' || language === null) {
+        andHello = andHello.slice(0, -1);
+    }
+    return `${moreThanTwo(tabLower, language)} ${andHello} ${string} !`;
+}
+
+function moreThanTwo(namesLower, language) {
+    const selectedLanguage = languages.find((lang) => lang.lang === language) || defaultLanguage;
+
     if (namesLower.length <= 1) {
-        return `Hello, ${namesLower.join("")}.`;
+        return `${selectedLanguage.greeting} ${namesLower.join('')}.`;
     }
-    const lastTwo = namesLower.slice(-2).join(" and ");
-    const rest = namesLower.slice(0, -2).join(", ");
 
-    return `Hello, ${rest.length > 0 ? rest + ", " : ""}${lastTwo}.`;
+    const lastTwo = namesLower.slice(-2).join(` ${selectedLanguage.and} `);
+    const rest = namesLower.slice(0, -2).join(', ');
+
+    return `${selectedLanguage.greeting} ${rest.length > 0 ? rest + ', ' : ''}${lastTwo}.`;
 }
 
 function containsUppercaseOnly(str) {
