@@ -12,7 +12,6 @@ jobs:
         with: 
             node-version: '14.x'
       - name: Installer les dépendances
-        working-directory: ./devops-mini-proj-tdd-greetings
         run: npm install
       - name: Exécuter les tests
         run: npm test
