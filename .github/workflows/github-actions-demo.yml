@@ -7,3 +7,5 @@ jobs:
     steps:
       - name: Installer les dépendances
         run: npm i
+      - name: Exécuter les tests
+        run: npm test
