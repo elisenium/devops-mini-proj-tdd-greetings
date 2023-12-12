@@ -5,8 +5,12 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Afficher le contenu du répertoire
+        run: ls -R
+      - name: Afficher le chemin actuel
+        run: pwd
       - name: Installer les dépendances
-        working-directory: devops-mini-proj-tdd-greetings 
+        working-directory: .
         run: npm install
       - name: Exécuter les tests
         run: npm test
