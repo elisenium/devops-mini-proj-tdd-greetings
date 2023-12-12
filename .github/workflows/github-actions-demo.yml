@@ -13,5 +13,7 @@ jobs:
             node-version: '14.x'
       - name: Installer les dépendances
         run: npm install
+      - name: Afficher l'heure de commencement de la pipeline
+        run: echo "L'heure de commencement de la pipeline est $(date)"
       - name: Exécuter les tests
         run: npm test
