@@ -17,5 +17,7 @@ jobs:
         run: echo "L'heure de commencement de la pipeline est $(date)"
       - name: Vérifier le formatage avec Prettier
         run: npm run prettier:fix
+      - name: Linter le code avec ESLint
+        run: npm run lint:fix
       - name: Exécuter les tests
         run: npm test
