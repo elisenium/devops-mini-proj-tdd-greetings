@@ -10,7 +10,6 @@ jobs:
       - name: Afficher le chemin actuel
         run: ls -R .
       - name: Installer les dépendances
-        working-directory: .
         run: npm install
       - name: Exécuter les tests
         run: npm test
