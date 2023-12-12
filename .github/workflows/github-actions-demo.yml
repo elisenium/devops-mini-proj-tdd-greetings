@@ -15,5 +15,7 @@ jobs:
         run: npm install
       - name: Afficher l'heure de commencement de la pipeline
         run: echo "L'heure de commencement de la pipeline est $(date)"
+      - name: Vérifier le formatage avec Prettier
+        run: npx prettier --check .
       - name: Exécuter les tests
         run: npm test
