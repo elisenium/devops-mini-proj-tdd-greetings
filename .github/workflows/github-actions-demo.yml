@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Installer les dépendances
-        working-directory: /home/runner/work/devops-mini-proj-tdd-greetings/package.json
+        working-directory: ./devops-mini-proj-tdd-greetings
         run: npm install
       - name: Exécuter les tests
         run: npm test
