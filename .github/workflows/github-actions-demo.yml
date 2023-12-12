@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Afficher le contenu du répertoire
-        run: ls -R
+        run: ls -R ..
       - name: Afficher le chemin actuel
-        run: pwd
+        run: ls -R .
       - name: Installer les dépendances
         working-directory: .
         run: npm install
