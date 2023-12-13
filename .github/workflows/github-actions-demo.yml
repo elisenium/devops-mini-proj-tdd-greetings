@@ -1,23 +1,32 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on: 
+  pull_request:
+    branches:
+      - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with: 
             node-version: '14.x'
+
       - name: Installer les dépendances
         run: npm install
+
       - name: Afficher l'heure de commencement de la pipeline
         run: echo "L'heure de commencement de la pipeline est $(date)"
+
       - name: Vérifier le formatage avec Prettier
         run: npm run prettier:fix
+
       - name: Linter le code avec ESLint
         run: npm run lint:fix
+
       - name: Exécuter les tests
         run: npm test
