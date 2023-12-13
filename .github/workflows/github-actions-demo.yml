@@ -26,11 +26,14 @@ jobs:
         run: echo "L'heure de commencement de la pipeline est $(date)"
 
       - name: Vérifier le formatage avec Prettier
-        run: npm run prettier:fix
+        run: npm run prettier
 
       - name: Linter le code avec ESLint
-        run: npm run lint:fix
+        run: npm run lint
 
       - name: Tester le code en faisant un test coverage
         run: npm test --coverage
 
+
+      - name: Afficher l'heure de fin de la pipeline
+        run: echo "End time of the pipeline is $(date)"
