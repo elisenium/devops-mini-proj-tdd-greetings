@@ -1,6 +1,9 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: 
+on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -27,6 +30,7 @@ jobs:
 
       - name: Linter le code avec ESLint
         run: npm run lint:fix
+
 
       - name: Exécuter les tests
         run: npm test
