@@ -34,5 +34,3 @@ jobs:
       - name: Tester le code en faisant un test coverage
         run: npm test --coverage
 
-      - name: Exécuter les tests
-        run: npm test
