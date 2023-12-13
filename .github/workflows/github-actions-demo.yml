@@ -34,12 +34,11 @@ jobs:
       - name: Tester le code en faisant un test coverage
         run: npm test --coverage
 
+      - name: Tester le builder Webpack
+        run: npm run build
 
       - name: Afficher l'heure de fin de la pipeline
         run: echo "L'heure de fin du pipeline est $(date)"
-
-      - name: Tester le builder Webpack
-        run: npm run build
 
       - name: Afficher le message de succès
         if: success()
