@@ -36,4 +36,8 @@ jobs:
 
 
       - name: Afficher l'heure de fin de la pipeline
-        run: echo "End time of the pipeline is $(date)"
+        run: echo "L'heure de fin du pipeline est $(date)"
+
+      - name: Display success message
+        if: success()
+        run: echo "PIPELINE SUCCESS WITHOUT ERRORS"
