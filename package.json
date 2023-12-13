@@ -10,6 +10,15 @@
     "lint": "eslint ./src/**",
     "lint:fix": "eslint --fix ./src/**"
   },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": ["./src/**"],
+    "coverageThreshold": {
+      "global": {
+        "lines": 80
+      }
+    }
+  },
   "name": "devops-mini-proj-tdd-greetings",
   "description": "Hello World",
   "version": "1.0.0",
