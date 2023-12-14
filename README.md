@@ -4,7 +4,7 @@ Travail de recherche, mettre en place de l'integration continue avec les GitHub 
 ## Informations
 - N° de groupe : 34
 - Membres du groupe : José Fechado Didia, Grelaud Elise
-- Lien vers le dépôt de code contenant la pipeline : https://github.com/elisenium/devops-mini-proj-tdd-greetings/tree/setUpPipeline
+- Lien vers le dépôt de code contenant le pipeline : https://github.com/elisenium/devops-mini-proj-tdd-greetings/tree/setUpPipeline
 
 ## Énoncé
 
@@ -55,7 +55,7 @@ Ici, notre fichier YML vérifie le formattage avec Prettier, le lintage avec ESL
 - Quelle est la différence entre run et run_on ?  Expliquez par rapport à votre pipeline.  
 ```bash
 "run" = exécute les étapes différentes de l'intégration continue
-"runs_on" = pour spécifier dans quel environnement les commandes et les scripts vont être exécutées
+"runs_on" = pour spécifier dans quel environnement les commandes et les scripts vont être exécutés (exemple : ubuntu-latest)
 ```
 - Quelle est la différence entre “use” et “run”. Expliquez par rapport à votre pipeline. 
 ```bash
