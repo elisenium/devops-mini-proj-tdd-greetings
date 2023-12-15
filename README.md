@@ -51,6 +51,7 @@ Ici, notre fichier YML vérifie le formattage avec Prettier, le lintage avec ESL
 "on" = pour définir l'événement qui excécute le workflow
 "on push" = s'exécute lorsqu'un commit est poussé vers la branche main
 "on pull request" = s'exécute lorsqu'une pull request est ouverte ou modifiée
+Nous conseillons à un groupe de développeurs juniors d'utiliser à la fois "on pull request" et "on push" comme nous l'avons fait. En effet, "on push" s’enclenche immédiatement après chaque push sur la branche courante donc cela peut générer des exécutions fréquentes. D’autre part, "on pull request" vérifie le code avant l'intégration, ce qui limite les risques d’erreurs, mais peut occasionner des délais. En combinant les deux déclencheurs, on équilibre la réactivité aux changements avec une vérification approfondie du code avant son intégration dans la branche ‘main’
 ```
 - Quelle est la différence entre run et run_on ?  Expliquez par rapport à votre pipeline.  
 ```bash
