@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Afficher l'heure de commencement de la pipeline
-        run: echo "L'heure de commencement de la pipeline est $(date)"
+        run: echo "L'heure de commencement de la pipeline est $(TZ='Europe/Paris' date)"
 
       - name: Vérifier le formatage avec Prettier
         run: npm run prettier
@@ -38,7 +38,7 @@ jobs:
         run: npm run build
 
       - name: Afficher l'heure de fin de la pipeline
-        run: echo "L'heure de fin du pipeline est $(date)"
+        run: echo "L'heure de fin du pipeline est $(TZ='Europe/Paris' date)"
 
       - name: Afficher le message de succès
         if: success()
