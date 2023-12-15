@@ -1,0 +1,45 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches:
+      - setUpPipeline
+  pull_request:
+    branches:
+      - main
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with: 
+            node-version: '14.x'
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Afficher l'heure de commencement de la pipeline
+        run: echo "L'heure de commencement de la pipeline est $(TZ='Europe/Paris' date)"
+
+      - name: Vérifier le formatage avec Prettier
+        run: npm run prettier
+
+      - name: Linter le code avec ESLint
+        run: npm run lint
+
+      - name: Tester le code en faisant un test coverage
+        run: npm test --coverage
+
+      - name: Tester le builder Webpack
+        run: npm run build
+
+      - name: Afficher l'heure de fin de la pipeline
+        run: echo "L'heure de fin du pipeline est $(TZ='Europe/Paris' date)"
+
+      - name: Afficher le message de succès
+        if: success()
+        run: echo "PIPELINE SUCCESS WITHOUT ERRORS"

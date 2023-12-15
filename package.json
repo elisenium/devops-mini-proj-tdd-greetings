@@ -1,14 +1,26 @@
 {
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "webpack": "^5.0.0-rc.6",
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
     "test": "jest",
     "start": "nodemon ./src/app.js",
     "prettier": "prettier ./src/** --check",
-    "prettier:fix": "prettier ./src/** --write",
     "lint": "eslint ./src/**",
-    "lint:fix": "eslint --fix ./src/**"
+    "build": "webpack ./src/*.js -o dist/"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 80
+      }
+    }
   },
   "name": "devops-mini-proj-tdd-greetings",
   "description": "Hello World",

@@ -55,7 +55,7 @@ function greet(name, language) {
     return `${moreThanTwo(tabLower, language)} ${andHello} ${string} !`;
 }
 /*pre : array with lowercase name
-  post : string with the correct form of sentence*/
+  post : string in the correct form of sentence*/
 function moreThanTwo(namesLower, language) {
     const selectedLanguage =
         languages.find((lang) => lang.lang === language) || defaultLanguage; //If there is a language set in parameter, find it. Else, set default language
